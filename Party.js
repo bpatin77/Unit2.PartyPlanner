@@ -121,7 +121,7 @@ renderParties();
 
 init();
 
-const date = new Date($form.date.value).toISOString();
+
 
 // Add recipe with form data when form is submitted
 const $form = document.querySelector("form");
@@ -129,10 +129,11 @@ $form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   // We can use `form.inputName` to reference input elements within the form
+  const date = new Date($form.date.value).toISOString(); //<-has to be directly above const party
   const party = { 
     name: $form.title.value,
     description: $form.instructions.value,
-    date: $form.date.value,
+    date, 
     location: $form.location.value,
 
   };
